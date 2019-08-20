@@ -11,14 +11,14 @@ import java.util.Properties;
 public class Consumer implements Runnable {
   private final Properties properties;
 
-  public Consumer(Properties properties) {
+  Consumer(Properties properties) {
     this.properties = properties;
   }
 
   @Override
   public void run() {
     KafkaConsumer kafkaConsumer = new KafkaConsumer(properties);
-    List topics = new ArrayList();
+    List<String>topics = new ArrayList<>();
     topics.add("topic");
     kafkaConsumer.subscribe(topics);
     try {
